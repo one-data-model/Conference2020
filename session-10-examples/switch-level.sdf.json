@@ -11,7 +11,6 @@
   "defaultnamespace": "st", 
   "odmObject": {
     "switchLevel": {
-      "name": "switchLevel",
       "label": "Switch Level",
       "odmRequired": [
         "#/odmObject/SwitchLevel/odmProperty/level",

@@ -6,12 +6,11 @@
     "license": "http://example.com/license"
   }, 
   "namespace": {
-    "st": "http://example.com/capability/smartthings"
+    "cap": "http://example.com/capability/"
   }, 
-  "defaultnamespace": "st", 
+  "defaultnamespace": "cap", 
   "odmObject": {
     "ovenOperatingState": {
-      "name": "ovenOperatingState",
       "label": "Oven Operating State",
       "odmRequired": [
         "#/odmObject/ovenOperatingState/odmProperty/machineState",
@@ -41,13 +40,13 @@
           ]
         },
         "completionTime": {
-          "odmRef": "/odmData/iso8601date"
+          "odmRef": "cap:#/odmData/iso8601date"
         },
         "operationTime": {
-          "odmRef": "/odmData/PositiveInteger"
+          "odmRef": "cap:#/odmData/PositiveInteger"
         },
         "progress": {
-          "odmRef": "/odmData/IntegerPercent"
+          "odmRef": "cap:#/odmData/IntegerPercent"
         }
       }, 
       "odmAction": {
@@ -55,22 +54,22 @@
           "odmInputData": [
             "#/odmObject/ovenOperatingState/odmAction/setMachineState/odmData/ovenMode"
           ],
-          "odmRequired": [
+          "odmRequiredInputData": [
             "#/odmObject/ovenOperatingState/odmAction/setMachineState/odmData/ovenMode"
           ],          
           "odmData": {
             "ovenMode": {
-              "odmRef": "/odmData/OvenMode"
+              "odmRef": "cap:#/odmData/OvenMode"
             }
           }
         },
         "stop": {},
         "start": {
           "odmInputData": [
-            "#/odmObject/ovenMode/odmAction/start/odmData/ovenMode"
+            "cap:#/odmObject/ovenMode/odmAction/start/odmData/ovenMode"
           ],
           "odmData": {
-            "odmRef": "/odmData/OvenMode"
+            "odmRef": "cap:#/odmData/OvenMode"
           }
         }
       }

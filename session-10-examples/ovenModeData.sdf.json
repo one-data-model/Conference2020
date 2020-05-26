@@ -6,12 +6,11 @@
     "license": "http://example.com/license"
   }, 
   "namespace": {
-    "st": "http://example.com/capability/smartthings"
+    "cap": "http://example.com/capability/"
   }, 
-  "defaultnamespace": "st", 
+  "defaultnamespace": "cap", 
   "odmData": {
     "OvenMode": {
-      "name": "OvenMode",
       "label": "Oven Mode",
       "type": "string",
       "enum": [

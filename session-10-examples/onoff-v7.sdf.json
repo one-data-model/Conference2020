@@ -6,13 +6,12 @@
     "license": "not licensed"
   }, 
   "namespace": {
-    "zcl": "http://example.com/zcl/odm"
+    "zcl": "http://example.com/zcl/"
   }, 
   "defaultnamespace": "zcl", 
   "odmObject": {
     "OnOff": {
-      "name": "OnOff", 
-      "id": "6", 
+      "label": "OnOff", 
       "odmRequired": [
         "#/odmObject/OnOff/odmProperty/OnOff", 
         "#/odmObject/OnOff/odmAction/On",
@@ -21,50 +20,41 @@
       ],
       "odmProperty": {
         "OnOff": {
-          "name": "OnOff", 
-          "id": "0000", 
+          "label": "OnOff", 
           "type": "boolean",
           "default": false
         }, 
         "GlobalSceneControl": {
-          "name": "GlobalSceneControl", 
-          "id": "4000", 
+          "label": "GlobalSceneControl", 
           "type": "boolean",
           "default": true
         }, 
         "OnTime": {
           "odmRef": "#/odmData/TransitionTimeData", 
-          "name": "OnTime", 
-          "id": "4001", 
+          "label": "OnTime", 
           "default": 0
         }, 
         "OffWaitTime": {
           "odmRef": "#/odmData/TransitionTimeData", 
-          "name": "OffWaitTime", 
-          "id": "4002", 
+          "label": "OffWaitTime", 
           "default": 0
         }, 
         "StartUpOnOff": {
           "odmRef": "#/odmData/StartUpOnOffMode", 
-          "name": "StartUpOnOff",
-          "id": "4003"
+          "label": "StartUpOnOff"
       }, 
       "odmAction": {
         "Off": {
-          "name": "Off", 
-          "id": "0"
+          "label": "Off" 
         }, 
         "On": {
-          "name": "On", 
-          "id": "1"
+          "label": "On"
         }, 
         "Toggle": {
-          "name": "Toggle", 
-          "id": "2" 
+          "label": "Toggle"
         }, 
         "OffWithEffect": {
-          "name": "OffWithEffect",
-          "id": "40",
+          "label": "OffWithEffect",
           "odmRequired": [
           ],
           "odmInputData": [
@@ -73,39 +63,34 @@
           ],
           "odmData": {
             "EffectIdentifier": {
-              "name": "EffectIdentifier", 
-              "widthInBits": 8, 
+              "label": "EffectIdentifier", 
+              "type": "number",
+              "enum": [0,1],
               "odmEnum": {
                 "DelayedAllOff": {
                   "type": "number",
-                  "widthInBits": 8,
-                  "const": 0
+                  "default": 0
                 },
                 "DyingLight": {
                   "type": "number",
-                  "widthInBits": 8,
-                  "const": 1
+                  "default": 1
                 }
               } 
             }, 
             "EffectVariant": {
-              "name": "EffectVariant", 
-              "type": "number", 
-              "widthInBits": 8
+              "label": "EffectVariant", 
+              "type": "number" 
             }
           }
         },
         "OnWithRecallGlobalScene": {
-          "name": "OnWithRecallGlobalScene", 
-          "id": "41"
+          "label": "OnWithRecallGlobalScene", 
         }, 
         "OnWithTimedOff": {
-          "name": "OnWithTimedOff", 
-          "id": "42",
+          "label": "OnWithTimedOff", 
           "odmData": {
             "OnOffControl": {
               "type": "object",
-              "widthInBits": 8,
               "properties" : {
                 "AcceptOnlyWhenOn": {
                   "type": "boolean"
@@ -118,7 +103,6 @@
       "odmData": {
         "TransitionTimeData": {
           "type": "number", 
-          "widthInBits": 16, 
           "minimum": 0, 
           "maximum": 65535, 
           "multipleOf": 1, 
@@ -127,26 +111,24 @@
           "scaleMaximum": 6553.5
         },
         "StartUpOnOffMode": {
+          "type": "number",
+          "enum": [0,1,2,255],
           "odmEnum": {
             "SetOnOffTo0": {
               "type": "number",
-              "widthInBits": 8,
-              "const": "0"
+              "default": "0"
             },
             "SetOnOffTo1": {
               "type": "number",
-              "widthInBits": 8,
-              "const": "1"
+              "default": "1"
             },
             "TogglePreviousOnOff": {
               "type": "number",
-              "widthInBits": 8,
-              "const": "2"
+              "default": "2"
             },
             "SetPreviousOnOff": {
               "type": "number",
-              "widthInBits": 8,
-              "const": "FF"
+              "default": "FF"
             }
           }
         }
